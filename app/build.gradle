@@ -31,4 +31,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.0.0'
     testCompile 'junit:junit:4.12'
     compile files('libs/jpush-android-2.2.0.jar')
+    compile files('libs/MiPush_SDK_Client_3_1_2.jar')
 }
