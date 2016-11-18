@@ -29,7 +29,8 @@
 ## **************** test ****************
 
 // ******************************** 极光推送 ********************************
-文档：http://docs.jiguang.cn/jpush/client/Android/android_guide/
+https://www.jiguang.cn/app/list
+http://docs.jiguang.cn/jpush/client/Android/android_guide/
 
 MultiPushDemo
 AppKey          41c6f730af0e6d481936bd74
@@ -40,7 +41,8 @@ Android
 应用包名  com.mjiayou.multipushdemo
 
 // ******************************** 小米推送 ********************************
-文档：http://dev.xiaomi.com/doc/?p=544
+http://dev.xiaomi.com/mipush/xmpush/app/applist?userId=25167770
+http://dev.xiaomi.com/doc/?p=544
 
 MultiPushDemo
 应用类型： Android
