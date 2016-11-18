@@ -36,6 +36,9 @@ public class MyApplication extends Application {
         // 选择对应的推送初始化
         mPushType = PUSH_TYPE_MIPUSH;
         initPush(mPushType);
+//        initPush(PUSH_TYPE_JPUSH);
+//        initPush(PUSH_TYPE_MIPUSH);
+//        initPush(PUSH_TYPE_HWPUSH);
     }
 
     private void initPush(int pushType) {
