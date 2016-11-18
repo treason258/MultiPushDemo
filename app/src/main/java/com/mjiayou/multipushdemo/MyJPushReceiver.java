@@ -14,7 +14,8 @@ import cn.jpush.android.api.JPushInterface;
  */
 
 public class MyJPushReceiver extends BroadcastReceiver {
-    private static final String TAG = "MyReceiver";
+
+    private static final String TAG = "MyJPushReceiver";
 
     private NotificationManager nm;
 

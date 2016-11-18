@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Process;
 import android.util.Log;
 
+import com.huawei.android.pushagent.PushManager;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
 import com.xiaomi.mipush.sdk.Logger;
 import com.xiaomi.mipush.sdk.MiPushClient;
@@ -33,7 +34,7 @@ public class MyApplication extends Application {
         super.onCreate();
 
         // 选择对应的推送初始化
-        mPushType = PUSH_TYPE_JPUSH;
+        mPushType = PUSH_TYPE_MIPUSH;
         initPush(mPushType);
     }
 
@@ -47,8 +48,8 @@ public class MyApplication extends Application {
             }
             case PUSH_TYPE_MIPUSH: {
                 //初始化小米推送
-                String APP_ID = "";
-                String APP_KEY = "";
+                String APP_ID = "2882303761517526557";
+                String APP_KEY = "5371752685557";
                 if (shouldInit()) {
                     MiPushClient.registerPush(this, APP_ID, APP_KEY);
                 }
@@ -73,6 +74,9 @@ public class MyApplication extends Application {
                 break;
             }
             case PUSH_TYPE_HWPUSH: {
+                String key = "";
+                String value = "";
+                PushManager.requestToken(this);
                 break;
             }
         }
