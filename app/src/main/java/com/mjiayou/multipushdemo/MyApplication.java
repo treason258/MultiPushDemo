@@ -4,9 +4,12 @@ import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 import android.os.Process;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.huawei.android.pushagent.PushManager;
+import com.huawei.hms.api.ConnectionResult;
+import com.huawei.hms.api.HuaweiApiClient;
+import com.huawei.hms.support.api.push.HuaweiPush;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
 import com.xiaomi.mipush.sdk.Logger;
 import com.xiaomi.mipush.sdk.MiPushClient;
@@ -34,10 +37,10 @@ public class MyApplication extends Application {
         super.onCreate();
 
         // 选择对应的推送初始化
-        mPushType = PUSH_TYPE_MIPUSH;
-        initPush(mPushType);
-//        initPush(PUSH_TYPE_JPUSH);
-//        initPush(PUSH_TYPE_MIPUSH);
+//        mPushType = PUSH_TYPE_MIPUSH;
+//        initPush(mPushType);
+        initPush(PUSH_TYPE_JPUSH);
+        initPush(PUSH_TYPE_MIPUSH);
 //        initPush(PUSH_TYPE_HWPUSH);
     }
 
@@ -53,7 +56,7 @@ public class MyApplication extends Application {
                 //初始化小米推送
                 String APP_ID = "2882303761517526557";
                 String APP_KEY = "5371752685557";
-                if (shouldInit()) {
+                if (shouldMiPushInit()) {
                     MiPushClient.registerPush(this, APP_ID, APP_KEY);
                 }
                 //打开Log
@@ -77,15 +80,33 @@ public class MyApplication extends Application {
                 break;
             }
             case PUSH_TYPE_HWPUSH: {
-                String key = "";
-                String value = "";
-                PushManager.requestToken(this);
+                HuaweiApiClient huaweiApiClient = new HuaweiApiClient.Builder(this)
+                        .addApi(HuaweiPush.PUSH_API)
+                        .addConnectionCallbacks(new HuaweiApiClient.ConnectionCallbacks() {
+                            @Override
+                            public void onConnected() {
+
+                            }
+
+                            @Override
+                            public void onConnectionSuspended(int i) {
+
+                            }
+                        })
+                        .addOnConnectionFailedListener(new HuaweiApiClient.OnConnectionFailedListener() {
+                            @Override
+                            public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+                            }
+                        })
+                        .build();
+                huaweiApiClient.connect();
                 break;
             }
         }
     }
 
-    private boolean shouldInit() {
+    private boolean shouldMiPushInit() {
         ActivityManager am = ((ActivityManager) getSystemService(Context.ACTIVITY_SERVICE));
         List<ActivityManager.RunningAppProcessInfo> processInfos = am.getRunningAppProcesses();
         String mainProcessName = getPackageName();

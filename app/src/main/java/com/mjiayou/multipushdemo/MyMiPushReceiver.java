@@ -16,6 +16,8 @@ import java.util.List;
  */
 
 public class MyMiPushReceiver extends PushMessageReceiver {
+
+    private static final String TAG = "MyMiPushReceiver";
     
     private String mRegId;
     private long mResultCode = -1;

@@ -5,31 +5,28 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.huawei.android.pushagent.api.PushEventReceiver;
+import com.huawei.hms.support.api.push.PushReceiver;
 
 /**
  * Created by treason on 2016/11/18.
  */
 
-public class MyHWPushReceiver extends PushEventReceiver {
+public class MyHWPushReceiver extends PushReceiver {
 
     private static final String TAG = "MyHWPushReceiver";
 
     @Override
     public void onToken(Context context, String token, Bundle extras) {
         String belongId = extras.getString("belongId");
-        String content = "获取token和belongId成功，token = " + token + ",belongId = " + belongId;
+        String content = "get token and belongId successful, token = " + token + ",belongId = " + belongId;
         Log.d(TAG, content);
-//        showPushMessage(PustDemoActivity.RECEIVE_TOKEN_MSG, content);
     }
-
 
     @Override
     public boolean onPushMsg(Context context, byte[] msg, Bundle bundle) {
         try {
-            String content = "收到一条Push消息： " + new String(msg, "UTF-8");
+            String content = "Receive a Push pass-by message： " + new String(msg, "UTF-8");
             Log.d(TAG, content);
-//            showPushMessage(PustDemoActivity.RECEIVE_PUSH_MSG, content);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -40,42 +37,23 @@ public class MyHWPushReceiver extends PushEventReceiver {
         if (Event.NOTIFICATION_OPENED.equals(event) || Event.NOTIFICATION_CLICK_BTN.equals(event)) {
             int notifyId = extras.getInt(BOUND_KEY.pushNotifyId, 0);
             if (0 != notifyId) {
-                NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                NotificationManager manager = (NotificationManager) context
+                        .getSystemService(Context.NOTIFICATION_SERVICE);
                 manager.cancel(notifyId);
             }
-            String content = "收到通知附加消息： " + extras.getString(BOUND_KEY.pushMsgKey);
+            String content = "receive extented notification message: " + extras.getString(BOUND_KEY.pushMsgKey);
             Log.d(TAG, content);
-//            showPushMessage(PustDemoActivity.RECEIVE_NOTIFY_CLICK_MSG, content);
-        } else if (Event.PLUGINRSP.equals(event)) {
-            final int TYPE_LBS = 1;
-            final int TYPE_TAG = 2;
-            int reportType = extras.getInt(BOUND_KEY.PLUGINREPORTTYPE, -1);
-            boolean isSuccess = extras.getBoolean(BOUND_KEY.PLUGINREPORTRESULT, false);
-            String message = "";
-            if (TYPE_LBS == reportType) {
-                message = "LBS report result :";
-            } else if (TYPE_TAG == reportType) {
-                message = "TAG report result :";
-            }
-            Log.d(TAG, message + isSuccess);
-//            showPushMessage(PustDemoActivity.RECEIVE_TAG_LBS_MSG, message + isSuccess);
         }
         super.onEvent(context, event, extras);
     }
 
-    /*
-     * 显示Push消息
-     */
-    public void showPushMessage(int type, String msg) {
-//        PustDemoActivity mPustTestActivity = MyApplication.instance().getMainActivity();
-//        if (mPustTestActivity != null) {
-//            Handler handler = mPustTestActivity.getHandler();
-//            if (handler != null) {
-//                Message message = handler.obtainMessage();
-//                message.what = type;
-//                message.obj = msg;
-//                handler.sendMessageDelayed(message, 1L);
-//            }
-//        }
+    @Override
+    public void onPushState(Context context, boolean pushState) {
+        try {
+            String content = "The current push status： " + (pushState ? "Connected" : "Disconnected");
+            Log.d(TAG, content);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
