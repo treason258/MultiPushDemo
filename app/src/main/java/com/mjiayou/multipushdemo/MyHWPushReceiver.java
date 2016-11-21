@@ -3,9 +3,9 @@ package com.mjiayou.multipushdemo;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.huawei.hms.support.api.push.PushReceiver;
+import com.mjiayou.multipushdemo.util.LogUtil;
 
 /**
  * Created by treason on 2016/11/18.
@@ -19,16 +19,16 @@ public class MyHWPushReceiver extends PushReceiver {
     public void onToken(Context context, String token, Bundle extras) {
         String belongId = extras.getString("belongId");
         String content = "get token and belongId successful, token = " + token + ",belongId = " + belongId;
-        Log.d(TAG, content);
+        LogUtil.d(TAG, content);
     }
 
     @Override
     public boolean onPushMsg(Context context, byte[] msg, Bundle bundle) {
         try {
             String content = "Receive a Push pass-by message： " + new String(msg, "UTF-8");
-            Log.d(TAG, content);
+            LogUtil.d(TAG, content);
         } catch (Exception e) {
-            e.printStackTrace();
+            LogUtil.printStackTrace(e);
         }
         return false;
     }
@@ -42,7 +42,7 @@ public class MyHWPushReceiver extends PushReceiver {
                 manager.cancel(notifyId);
             }
             String content = "receive extented notification message: " + extras.getString(BOUND_KEY.pushMsgKey);
-            Log.d(TAG, content);
+            LogUtil.d(TAG, content);
         }
         super.onEvent(context, event, extras);
     }
@@ -51,9 +51,9 @@ public class MyHWPushReceiver extends PushReceiver {
     public void onPushState(Context context, boolean pushState) {
         try {
             String content = "The current push status： " + (pushState ? "Connected" : "Disconnected");
-            Log.d(TAG, content);
+            LogUtil.d(TAG, content);
         } catch (Exception e) {
-            e.printStackTrace();
+            LogUtil.printStackTrace(e);
         }
     }
 }

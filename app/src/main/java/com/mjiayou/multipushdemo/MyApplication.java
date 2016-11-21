@@ -4,12 +4,8 @@ import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 import android.os.Process;
-import android.support.annotation.NonNull;
-import android.util.Log;
 
-import com.huawei.hms.api.ConnectionResult;
-import com.huawei.hms.api.HuaweiApiClient;
-import com.huawei.hms.support.api.push.HuaweiPush;
+import com.mjiayou.multipushdemo.util.LogUtil;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
 import com.xiaomi.mipush.sdk.Logger;
 import com.xiaomi.mipush.sdk.MiPushClient;
@@ -39,8 +35,8 @@ public class MyApplication extends Application {
         // 选择对应的推送初始化
 //        mPushType = PUSH_TYPE_MIPUSH;
 //        initPush(mPushType);
-        initPush(PUSH_TYPE_JPUSH);
-        initPush(PUSH_TYPE_MIPUSH);
+//        initPush(PUSH_TYPE_JPUSH);
+//        initPush(PUSH_TYPE_MIPUSH);
 //        initPush(PUSH_TYPE_HWPUSH);
     }
 
@@ -63,44 +59,23 @@ public class MyApplication extends Application {
                 LoggerInterface newLogger = new LoggerInterface() {
                     @Override
                     public void setTag(String tag) {
-                        // ignore
+                        LogUtil.i(TAG, "setTag");
                     }
 
                     @Override
                     public void log(String content, Throwable t) {
-                        Log.d(TAG, content, t);
+                        LogUtil.e(TAG, "log -> " + content, t);
                     }
 
                     @Override
                     public void log(String content) {
-                        Log.d(TAG, content);
+                        LogUtil.d(TAG, "log -> " + content);
                     }
                 };
                 Logger.setLogger(this, newLogger);
                 break;
             }
             case PUSH_TYPE_HWPUSH: {
-                HuaweiApiClient huaweiApiClient = new HuaweiApiClient.Builder(this)
-                        .addApi(HuaweiPush.PUSH_API)
-                        .addConnectionCallbacks(new HuaweiApiClient.ConnectionCallbacks() {
-                            @Override
-                            public void onConnected() {
-
-                            }
-
-                            @Override
-                            public void onConnectionSuspended(int i) {
-
-                            }
-                        })
-                        .addOnConnectionFailedListener(new HuaweiApiClient.OnConnectionFailedListener() {
-                            @Override
-                            public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-                            }
-                        })
-                        .build();
-                huaweiApiClient.connect();
                 break;
             }
         }
@@ -117,5 +92,9 @@ public class MyApplication extends Application {
             }
         }
         return false;
+    }
+
+    private void getToken() {
+
     }
 }

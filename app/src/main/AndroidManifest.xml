@@ -228,7 +228,7 @@
         <!-- APPID -->
         <meta-data
             android:name="com.huawei.hms.client.appid"
-            android:value="10652286" />
+            android:value="10724742" />
 
         <receiver android:name=".MyHWPushReceiver">
             <intent-filter>
@@ -251,6 +251,12 @@
                 <action android:name="com.huawei.intent.action.PUSH" />
             </intent-filter>
         </receiver>
+        <provider
+            android:name="com.huawei.hms.update.provider.UpdateProvider"
+            android:authorities="com.mjiayou.multipushdemo.hms.update.provider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+        </provider>
         <!-- ******************************* 华为推送 - END ******************************* -->
 
     </application>

@@ -55,3 +55,7 @@ AppSecret：  nGMae4iMZh3q5nf15bW2ig==
 // ******************************** 华为推送 ********************************
 文档：http://developer.huawei.com/consumer/cn/wiki/index.php?title=HMS%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC%E4%B9%A6-PUSH%E6%9C%8D%E5%8A%A1%E6%8E%A5%E5%8F%A3
 
+MultiPushDemo
+状态：   草稿
+APP ID：     10724742
+APP SECRET： 7ed4798468ff2733c3bddd906266a8c8

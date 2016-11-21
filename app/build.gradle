@@ -11,9 +11,29 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+//    signingConfigs {
+//        debug {
+//            storeFile file("trecore-debug.jks")
+//            storePassword "android"
+//            keyAlias "androidDebugkey"
+//            keyPassword "android"
+//        }
+//        release {
+//            storeFile file("trecore-debug.jks")
+//            storePassword "android"
+//            keyAlias "androidDebugkey"
+//            keyPassword "android"
+//        }
+//    }
     buildTypes {
+        debug {
+            minifyEnabled false
+//            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
         release {
             minifyEnabled false
+//            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
