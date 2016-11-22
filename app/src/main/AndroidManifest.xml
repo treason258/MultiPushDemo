@@ -136,7 +136,7 @@
 
         <!-- User defined. 用户自定义的广播接收器-->
         <receiver
-            android:name="com.mjiayou.multipushdemo.MyJPushReceiver"
+            android:name="com.mjiayou.multipushdemo.receiver.MyJPushReceiver"
             android:enabled="true">
             <intent-filter>
                 <!--Required 用户注册SDK的intent-->
@@ -190,7 +190,7 @@
             android:enabled="true" />
 
         <receiver
-            android:name="com.mjiayou.multipushdemo.MyMiPushReceiver"
+            android:name="com.mjiayou.multipushdemo.receiver.MyMiPushReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE" />
@@ -230,7 +230,7 @@
             android:name="com.huawei.hms.client.appid"
             android:value="10724742" />
 
-        <receiver android:name=".MyHWPushReceiver">
+        <receiver android:name=".receiver.MyHWPushReceiver">
             <intent-filter>
                 <!-- 必须,用于接收token -->
                 <action android:name="com.huawei.android.push.intent.REGISTRATION" />

@@ -1,4 +1,4 @@
-package com.mjiayou.multipushdemo;
+package com.mjiayou.multipushdemo.receiver;
 
 import android.app.NotificationManager;
 import android.content.Context;

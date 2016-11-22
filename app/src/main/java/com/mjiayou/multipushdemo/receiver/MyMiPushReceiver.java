@@ -1,4 +1,4 @@
-package com.mjiayou.multipushdemo;
+package com.mjiayou.multipushdemo.receiver;
 
 import android.content.Context;
 import android.text.TextUtils;

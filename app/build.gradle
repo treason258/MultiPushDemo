@@ -11,36 +11,16 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-//    signingConfigs {
-//        debug {
-//            storeFile file("trecore-debug.jks")
-//            storePassword "android"
-//            keyAlias "androidDebugkey"
-//            keyPassword "android"
-//        }
-//        release {
-//            storeFile file("trecore-debug.jks")
-//            storePassword "android"
-//            keyAlias "androidDebugkey"
-//            keyPassword "android"
-//        }
-//    }
     buildTypes {
-        debug {
-            minifyEnabled false
-//            signingConfig signingConfigs.debug
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
         release {
             minifyEnabled false
-//            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
     sourceSets {
-        main.res.srcDirs += 'src/main/res-jpush'
-        main.res.srcDirs += 'src/main/res-hwpush'
+        main.res.srcDirs += 'src/main/res-jpush' // 极光推送-资源文件
+        main.res.srcDirs += 'src/main/res-hwpush' // 华为推送-资源文件
     }
 }
 
@@ -51,9 +31,9 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.0.0'
     testCompile 'junit:junit:4.12'
-    compile files('libs/jpush-android-2.2.0.jar')
-    compile files('libs/MiPush_SDK_Client_3_1_2.jar')
-    compile(name: 'HMS-SDK-2.4.0.300', ext: 'aar')
+    compile files('libs/jpush-android-2.2.0.jar') // 极光推送
+    compile files('libs/MiPush_SDK_Client_3_1_2.jar') // 小米推送
+    compile(name: 'HMS-SDK-2.4.0.300', ext: 'aar') // 华为推送
 }
 
-repositories { flatDir { dirs 'aars' } }
+repositories { flatDir { dirs 'aars' } } // 华为推送
