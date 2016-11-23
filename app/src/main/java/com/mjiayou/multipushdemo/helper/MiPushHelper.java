@@ -46,7 +46,6 @@ public class MiPushHelper {
             }
         };
         Logger.setLogger(context, newLogger);
-
     }
 
     private static boolean shouldMiPushInit(Context context) {

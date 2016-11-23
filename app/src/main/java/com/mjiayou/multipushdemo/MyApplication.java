@@ -2,6 +2,7 @@ package com.mjiayou.multipushdemo;
 
 import android.app.Application;
 
+import com.mjiayou.multipushdemo.helper.HWPushHelper;
 import com.mjiayou.multipushdemo.helper.JPushHelper;
 import com.mjiayou.multipushdemo.helper.MiPushHelper;
 
@@ -27,7 +28,7 @@ public class MyApplication extends Application {
         // TODO 全部打开测试
         JPushHelper.init(getApplicationContext());
         MiPushHelper.init(getApplicationContext());
-//        HWPushHelper.init(getApplicationContext());
+        HWPushHelper.init(getApplicationContext());
 
 //        // 根据系统开启推送平台
 //        if (AppUtil.ROM.isEMUI()) { // 如果是华为系统，则使用华为推送

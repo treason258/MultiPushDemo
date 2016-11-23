@@ -31,9 +31,10 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.0.0'
     testCompile 'junit:junit:4.12'
-    compile files('libs/jpush-android-2.2.0.jar') // 极光推送
-    compile files('libs/MiPush_SDK_Client_3_1_2.jar') // 小米推送
-    compile(name: 'HMS-SDK-2.4.0.300', ext: 'aar') // 华为推送
+    // 极光推送
+    compile files('libs/jpush-android-2.2.0.jar')
+    // 小米推送
+    compile files('libs/MiPush_SDK_Client_3_1_2.jar')
+    // 华为推送
+    compile files('libs/HwPush_SDK_V2705.jar')
 }
-
-repositories { flatDir { dirs 'aars' } } // 华为推送

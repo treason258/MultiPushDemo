@@ -15,7 +15,7 @@ public class LogUtil {
     private static final String TAG_TRACE_TIME = "LogUtil_TraceTime";
 
     private static boolean SHOW_LOG = true;
-    private static boolean SHOW_LOG_WITH_PATH = true;
+    private static boolean SHOW_LOG_WITH_PATH = false;
 
     /**
      * Send a VERBOSE log message.
