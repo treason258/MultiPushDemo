@@ -20,7 +20,8 @@ public class MiPushHelper {
     public static final String TAG = "MiPushHelper";
 
     public static void init(Context context) {
-        Configs.PUSH_PLATFORM = "小米推送";
+        Configs.PUSH_PLATFORM += " 小米推送";
+
         //初始化小米推送
         String APP_ID = "2882303761517526557";
         String APP_KEY = "5371752685557";

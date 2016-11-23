@@ -16,6 +16,8 @@ public class JPushHelper {
      * 极光推送初始化
      */
     public static void init(Context context) {
+        Configs.PUSH_PLATFORM += " 极光推送";
+
         JPushInterface.setDebugMode(true);
         JPushInterface.init(context);
     }

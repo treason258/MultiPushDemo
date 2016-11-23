@@ -21,8 +21,11 @@ public class HWPushHelper {
 
     private static HuaweiApiClient mHuaweiApiClient = null;
 
+    private boolean mResolvingError = false;
+
     public static void init(Context context) {
-        Configs.PUSH_PLATFORM = "华为推送";
+        Configs.PUSH_PLATFORM += " 华为推送";
+
         mHuaweiApiClient = new HuaweiApiClient.Builder(context)
                 .addApi(HuaweiPush.PUSH_API)
                 .addConnectionCallbacks(new HuaweiApiClient.ConnectionCallbacks() {
