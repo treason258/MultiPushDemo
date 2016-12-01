@@ -2,6 +2,8 @@ package com.mjiayou.multipushdemo.helper;
 
 import android.content.Context;
 
+import com.mjiayou.multipushdemo.common.Configs;
+
 import cn.jpush.android.api.JPushInterface;
 
 /**

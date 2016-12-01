@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Process;
 
+import com.mjiayou.multipushdemo.common.Configs;
 import com.mjiayou.multipushdemo.util.LogUtil;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
 import com.xiaomi.mipush.sdk.Logger;

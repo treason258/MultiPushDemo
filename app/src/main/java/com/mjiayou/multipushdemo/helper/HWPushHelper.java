@@ -3,6 +3,7 @@ package com.mjiayou.multipushdemo.helper;
 import android.content.Context;
 
 import com.huawei.android.pushagent.PushManager;
+import com.mjiayou.multipushdemo.common.Configs;
 import com.mjiayou.multipushdemo.util.LogUtil;
 
 /**

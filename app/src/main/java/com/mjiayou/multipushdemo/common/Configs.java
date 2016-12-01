@@ -1,4 +1,4 @@
-package com.mjiayou.multipushdemo.helper;
+package com.mjiayou.multipushdemo.common;
 
 /**
  * Created by treason on 2016/11/22.

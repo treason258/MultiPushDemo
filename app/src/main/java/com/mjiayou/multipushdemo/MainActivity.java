@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import com.mjiayou.multipushdemo.helper.Configs;
+import com.mjiayou.multipushdemo.common.Configs;
 import com.mjiayou.multipushdemo.util.AppUtil;
 import com.mjiayou.multipushdemo.util.LogUtil;
 import com.mjiayou.multipushdemo.util.RomUtil;
