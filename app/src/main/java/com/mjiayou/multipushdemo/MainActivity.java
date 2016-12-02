@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         builder.append("是否是魅族系统 -> ").append(RomUtil.isFLYME()).append("\n");
         builder.append("当前手机系统 -> ").append(RomUtil.getRom().toString()).append("\n");
         builder.append("\n");
+        builder.append("推送策略 -> ").append(Configs.PUSH_RULE).append("\n");
+        builder.append("\n");
         builder.append("当前使用的推送平台 -> ").append(Configs.PUSH_PLATFORM).append("\n");
         LogUtil.i(TAG, builder.toString());
         mTvInfo.setText(builder.toString());

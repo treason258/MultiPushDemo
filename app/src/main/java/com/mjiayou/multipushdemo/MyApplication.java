@@ -2,6 +2,7 @@ package com.mjiayou.multipushdemo;
 
 import android.app.Application;
 
+import com.mjiayou.multipushdemo.common.Configs;
 import com.mjiayou.multipushdemo.helper.JPushHelper;
 import com.mjiayou.multipushdemo.helper.MiPushHelper;
 import com.mjiayou.multipushdemo.util.RomUtil;
@@ -30,7 +31,7 @@ public class MyApplication extends Application {
 //        MiPushHelper.init(getApplicationContext());
 //        HWPushHelper.init(getApplicationContext());
 
-        // 根据系统开启推送平台：如果是小米系统，则走小米推送；如果不是，则走极光推送
+        Configs.PUSH_RULE += "根据系统开启推送平台：如果是小米系统，则走小米推送；如果不是，则走极光推送";
         if (RomUtil.isMIUI()) { // 如果是小米系统，则走小米推送
             MiPushHelper.init(getApplicationContext());
         } else { // 如果不是，则走极光推送

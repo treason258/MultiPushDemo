@@ -6,5 +6,6 @@ package com.mjiayou.multipushdemo.common;
 
 public class Configs {
 
+    public static String PUSH_RULE = "";
     public static String PUSH_PLATFORM = "";
 }
