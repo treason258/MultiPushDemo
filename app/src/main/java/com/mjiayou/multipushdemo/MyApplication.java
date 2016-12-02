@@ -27,9 +27,9 @@ public class MyApplication extends Application {
         mInstance = this;
 
 //        // TODO 全部打开测试
+//        Configs.PUSH_RULE += "测试包，三个推送平台全部打开";
 //        JPushHelper.init(getApplicationContext());
 //        MiPushHelper.init(getApplicationContext());
-//        HWPushHelper.init(getApplicationContext());
 
         Configs.PUSH_RULE += "根据系统开启推送平台：如果是小米系统，则走小米推送；如果不是，则走极光推送";
         if (RomUtil.isMIUI()) { // 如果是小米系统，则走小米推送

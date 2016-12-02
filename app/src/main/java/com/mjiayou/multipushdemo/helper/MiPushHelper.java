@@ -22,6 +22,7 @@ public class MiPushHelper {
 
     public static void init(Context context) {
         Configs.PUSH_PLATFORM += " 小米推送";
+        JPushHelper.stopPush(context);
 
         //初始化小米推送
         String APP_ID = "2882303761517526557";
@@ -47,6 +48,14 @@ public class MiPushHelper {
             }
         };
         Logger.setLogger(context, newLogger);
+    }
+
+    public static void stopPush(Context context) {
+        try {
+            MiPushClient.unregisterPush(context);
+        } catch (Exception e) {
+            LogUtil.printStackTrace(e);
+        }
     }
 
     private static boolean shouldMiPushInit(Context context) {
